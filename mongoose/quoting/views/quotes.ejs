@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<h1>All Quotes</h1>
-		<% for ( quote of quote_list ) { %>
+		<% for ( let quote of quote_list ) { %>
 			<div class="quote-full">
 				<p class="text"><%= quote.content %></p>
 				<p class="attribution">-<%= quote.user %> at <%= quote.date_added %></p>
