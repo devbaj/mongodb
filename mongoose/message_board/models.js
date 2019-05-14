@@ -12,13 +12,10 @@ const Comment = mongoose.model ( 'Comment' , CommentSchema );
 const MessageSchema = new mongoose.Schema ( {
 	name : { type : String , require : [ true , 'Name is required' ] } ,
 	content : { type : String , require : [ true , 'A message must have content' ] } ,
-	comments : CommentSchema
+	comments : [ CommentSchema ]
 } , {
 	timestamps : true
 } )
 const Message = mongoose.model ( 'Message' , MessageSchema );
 
-module.exports = {
-	Comment : Comment ,
-	Message : Message
-}
+module.exports = Message;

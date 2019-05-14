@@ -12,7 +12,7 @@
 			<h1 class="title">Dojo Message Board</h1>
 			<form action="/send_message" method="post" class="msg-form">
 				<p class="form-field">Name: <input type="text" name="name" id="msg-name"></p>
-				<p class="form-field">Message: <textarea name="msg-content" id="" cols="30" rows="10"></textarea></p>
+				<p class="form-field">Message: <textarea name="msgContent" id="msg-content" cols="30" rows="10"></textarea></p>
 				<button type="submit">Send</button>
 			</form>
 			<div class="msg-log">
@@ -21,13 +21,16 @@
 						<p class="msg-line">Name: <%= msg.name %></p>
 						<p class="msg-line">Message : <%= msg.content %></p>
 						<div class="comment-list">
+						<% if ( msg.comments ) { %>
 						<% for ( let comment of msg.comments ) { %>
 							<p class="comment-line">Name: <%= comment.name %></p>
 							<div class="comment-line">Comment: <%= comment.content %></div>
 						<% } %>
+						<% } %>
 						<form action="/send_comment" method="post" class="comment-form">
+							<input type="hidden" name="messageId" value="<%= msg._id %>">
 							<p class="comment-line">Name: <input type="text" name="name" id="comment-name"></p>
-							<p class="comment-line">Comment: <textarea name="content" id="comment-content" cols="30" rows="10"></textarea></p>
+							<p class="comment-line">Comment: <textarea name="content" id="commentContent" cols="30" rows="10"></textarea></p>
 							<button type="submit">Send</button>
 						</form>
 						</div>
