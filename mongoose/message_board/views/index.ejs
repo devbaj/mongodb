@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Message Board</title>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1 class="title">Dojo Message Board</h1>
+			<form action="/send_message" method="post" class="msg-form">
+				<p class="form-field">Name: <input type="text" name="name" id="msg-name"></p>
+				<p class="form-field">Message: <textarea name="msg-content" id="" cols="30" rows="10"></textarea></p>
+				<button type="submit">Send</button>
+			</form>
+			<div class="msg-log">
+				<% for ( let msg of msgs )  { %>
+					<div class="msg">
+						<p class="msg-line">Name: <%= msg.name %></p>
+						<p class="msg-line">Message : <%= msg.content %></p>
+						<div class="comment-list">
+						<% for ( let comment of msg.comments ) { %>
+							<p class="comment-line">Name: <%= comment.name %></p>
+							<div class="comment-line">Comment: <%= comment.content %></div>
+						<% } %>
+						<form action="/send_comment" method="post" class="comment-form">
+							<p class="comment-line">Name: <input type="text" name="name" id="comment-name"></p>
+							<p class="comment-line">Comment: <textarea name="content" id="comment-content" cols="30" rows="10"></textarea></p>
+							<button type="submit">Send</button>
+						</form>
+						</div>
+						<% } %>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
