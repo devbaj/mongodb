@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Change the Bird</title>
+</head>
+<body>
+	<div class="container">
+		<h1>This Bird is Wrong!</h1>
+		<form action="/birds/<%= bird._id %>" method="post">
+			<p>Name: <input type="text" name="name" id="name" value="<%= bird.name %>"></p>
+			<p>Name: <input type="text" name="type" id="type" value="<%= bird.type %>"></p>
+			<p>Name: <input type="text" name="age" id="age" value="<%= bird.age %>"></p>
+			<button type="submit">Make Changes</button>
+		</form>
+	</div>
+</body>
+</html>

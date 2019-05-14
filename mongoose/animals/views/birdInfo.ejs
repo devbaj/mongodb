@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>A Bird</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Nice bird!</h1>
+		<p class="go-back"><a href="/">Back to Dashboard</a></p>
+		<p>Name: <%= bird.name %></p>
+		<p>Type: <%= bird.type %></p>
+		<p>Age: <%= bird.age %></p>
+		<a href="/birds/edit/<%= bird._id %>">Edit</a>
+	</div>
+</body>
+</html>

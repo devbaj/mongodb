@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Birds</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="title">BIRDS</h1>
+		<a href="/birds/new"><button>Add a Bird</button></a>
+		<div class="bird-list">
+		<% for ( let bird of bird_list ) { %>
+			<p>Name: <a href="/birds/<%= bird._id %>"><%= bird.name %></a></p>
+			<p>Type: <%= bird.type %></p>
+			<p>Age: <%= bird.age %></p>
+			<form action="/birds/destroy/<%= bird.id %>" method="post">
+				<button type="submit">Delete</button>
+			</form>
+		<% } %>
+		</div>
+	</div>
+</body>
+</html>
